@@ -10,7 +10,7 @@ echo "--- Iniciando configuración de Debian 13 ---"
 
 # 2. Instalación de paquetes esenciales
 echo "[1/5] Instalando sudo y herramientas de consola..."
-apt update && apt install -y sudo kbd net-tools git
+apt update && apt install -y sudo kbd net-tools git openssh-server
 
 # 3. Configurar el teclado al español (permanente)
 echo "[2/5] Configurando teclado en español..."
