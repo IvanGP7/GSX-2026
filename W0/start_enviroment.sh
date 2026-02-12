@@ -14,7 +14,7 @@ read -p "Introduce el nombre de tu usuario para darle permisos sudo: " USUARIO
 
 # 2. Instalación de paquetes esenciales
 echo "[1/5] Instalando sudo y herramientas de consola..."
-PAQUETES=(sudo kbd net-tools git openssh-server)
+PAQUETES=(sudo kbd net-tools git openssh-server gnupg2)
 apt update && apt install -y "${PAQUETES[@]}"
 
 # 3. Configurar el teclado al español (permanente)

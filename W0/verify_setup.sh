@@ -3,7 +3,7 @@
 
 ADMIN_DIR="/admin"
 ESTADO_OK=true
-PAQUETES=(sudo kbd net-tools git openssh-server tar)
+PAQUETES=(sudo kbd net-tools git openssh-server tar gnupg2)
 
 echo "--- Verificando Integridad del Sistema ---"
 
