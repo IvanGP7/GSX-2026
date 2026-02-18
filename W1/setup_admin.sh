@@ -30,7 +30,6 @@ echo "Configurando directorio compartido en $ADMIN_DIR..."
 sudo mkdir -p $ADMIN_DIR/{scripts,backups,config,logs}
 
 # Ajuste de permisos para que el grupo 'sudo' pueda administrarlo
-sudo chown -R root:sudo $ADMIN_DIR
-sudo chmod -R 775 $ADMIN_DIR
-
+sudo chown -R root:gsx $ADMIN_DIR
+sudo chmod -R 755 $ADMIN_DIR
 echo "[OK] Estructura administrativa lista."
