@@ -3,12 +3,12 @@
 set -euo pipefail
 
 # 1. Definir rutas (Asegúrate de que /path/to/your/backup_script.sh existe)
-POS_ACT=$(pwd)
-cd ../W1
-SCRIPT_PATH="$(pwd)/backup.sh"
-cd $POS_ACT
+
+SCRIPT_PATH="/admin/config/backup.sh"
 SERVICE_FILE="/etc/systemd/system/backup-semana1.service"
 TIMER_FILE="/etc/systemd/system/backup-semana1.timer"
+
+sudo cp ../W1/backup.sh $SCRIPT_PATH
 
 # 2. Revisar si el script existe y sinó salimos (Idempotencia)
 if [ ! -f "$SCRIPT_PATH" ]; then
