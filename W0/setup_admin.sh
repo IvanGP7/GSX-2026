@@ -6,6 +6,9 @@ PAQUETES=(sudo kbd net-tools git openssh-server tar gnupg2)
 
 echo "--- Iniciando Configuración de Entorno ---"
 
+# Aturar script si hi ha errors
+set -euo pipefail
+
 # 1. Instalación inteligente de paquetes (Punto 5.1)
 pendientes=()
 for pkg in "${PAQUETES[@]}"; do

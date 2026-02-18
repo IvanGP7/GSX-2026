@@ -1,6 +1,9 @@
 #!/bin/bash
 # Script de verificación y re-aplicación (Idempotencia)
 
+# Aturar si hi ha errors
+set -euo pipefail
+
 ADMIN_DIR="/admin"
 ESTADO_OK=true
 PAQUETES=(sudo kbd net-tools git openssh-server tar gnupg2)

@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Aturar si hi ha errors
+set -euo pipefail
+
 # 0. Comprobar si se ejecuta como root
 if [ "$EUID" -ne 0 ]; then 
   echo "Por favor, ejecuta el script con 'su -' o como root"

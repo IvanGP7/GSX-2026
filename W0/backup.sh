@@ -6,6 +6,9 @@ DESTINO="/admin/backups"
 FECHA=$(date +%Y%m%d_%H%M)
 NOMBRE="admin_tools_$FECHA.tar.gz"
 
+# Aturar script si hi ha errors
+set -euo pipefail
+
 # Asegurar que el destino existe
 mkdir -p $DESTINO
 
