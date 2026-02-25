@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#!/bin/bash
+set -euo pipefile
 
 # 1. Comprobar si Nginx ya está instalado
 if ! command -v nginx &> /dev/null; then
