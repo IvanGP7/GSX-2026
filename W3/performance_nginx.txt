@@ -1,0 +1,34 @@
+Copiar el siguiente trozo de service tras el siguiente comando:
+
+------------------------------
+
+    > sudo systemctl edit nginx
+
+-------------------------------
+
+[Service]
+# Límites de Recursos (cgroups)
+CPUAccounting=yes
+MemoryAccounting=yes
+CPUQuota=10%
+MemoryMax=50M
+MemoryHigh=40M
+
+-------------------------------
+
+Se ha decidido configurar estos límites para asegurar la estabilidad del servidor.
+En un entorno real (como una startup), si Nginx sufre un error o recibe un ataque 
+de tráfico, podría consumir toda la CPU y memoria, bloqueando el resto de servicios.
+
+Al usar cgroups, "enjaulamos" a Nginx para que nunca use más del 10% de CPU y 50MB 
+de RAM, protegiendo así la integridad del sistema operativo.
+
+Una vez cambiado podemos reinicinar y ejecutar lo siguiente:
+
+--------------------------------
+
+    > sudo systemctl restart nginx
+    > systemctl show nginx | grep -E "CPUQuota|MemoryMax"
+
+-------------------------------
+
