@@ -1,0 +1,14 @@
+# Ignorar logs y archivos temporales
+*.log
+/admin/logs/
+/var/setup_phase.txt
+
+# Ignorar backups gigantes
+*.tar.gz
+*.gpg
+/admin/backups/
+
+# Ignorar secretos y contraseñas
+.gpg_pass
+.env
+secretos/

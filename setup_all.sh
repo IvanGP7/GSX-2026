@@ -18,7 +18,16 @@ BASE_DIR=$(dirname "$SCRIPT_PATH")
 # FASE 1: PRIMERA EJECUCIÓN (Pre-Reboot)
 if [ ! -f "$STATE_FILE" ]; then
     echo "--- INICIANDO INSTALACIÓN (Fase 1: Pre-Reboot) ---"
-    
+
+    # Pedir contraseña para los backups (Seguridad)
+    echo "Configuración de seguridad:"
+    mkdir -p /admin/config
+    read -s -p "Introduce la contraseña para cifrar los backups (GPG): " GPG_PASS
+    echo ""
+    echo "$GPG_PASS" > /admin/config/.gpg_pass
+    chmod 600 /admin/config/.gpg_pass
+    echo "Contraseña guardada de forma segura en /admin/config/.gpg_pass"
+
     # 1. Crear el archivo de estado
     echo "fase2_pendiente" > "$STATE_FILE"
 
