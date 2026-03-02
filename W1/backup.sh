@@ -17,9 +17,9 @@ echo "Iniciando empaquetado de seguridad..."
 # 'p' preserva atributos, 'z' comprime con gzip
 sudo tar -cpzf "$DESTINO/$NOMBRE" "$ORIGEN"
 
-# Encriptación con GPG (pedirá contraseña)
+# Encriptación con GPG
 # Se añade .gpg al final y se elimina el archivo original por seguridad
-if sudo gpg -c "$DESTINO/$NOMBRE"; then
+if sudo gpg --batch --yes --passphrase "gsx2026%" -c "$DESTINO/$NOMBRE"; then
     sudo rm "$DESTINO/$NOMBRE"
     echo "Backup completado y cifrado: $DESTINO/$NOMBRE.gpg"
 else
