@@ -8,8 +8,8 @@ LOG="/admin/logs/integrity_check.log"
 echo "[$(date)] Iniciando test de integridad..." >> $LOG
 
 # Comparamos el número de archivos
-count_orig=$(find $ORIGEN -type f | wc -l)
-count_back=$(find $BACKUP -type f | wc -l)
+count_orig=$(sudo find $ORIGEN -type f | wc -l)
+count_back=$(sudo find $BACKUP -type f | wc -l)
 
 if [ "$count_orig" -eq "$count_back" ]; then
     echo "[OK] Cantidad de archivos coincide ($count_orig)." >> $LOG
@@ -29,3 +29,5 @@ if [ -f "$ORIGEN/$archivo_test" ]; then
         echo "[ERROR] CORRUPCIÓN DETECTADA en $archivo_test" >> $LOG
     fi
 fi
+
+cat /admin/logs/integrity_check.log | tail -n 10

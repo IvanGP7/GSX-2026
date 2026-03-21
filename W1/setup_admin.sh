@@ -2,7 +2,7 @@
 # Script de instalación de herramientas y creación de estructura administrativa
 
 ADMIN_DIR="/admin"
-PAQUETES=(sudo kbd net-tools git openssh-server tar gnupg2)
+PAQUETES=(sudo kbd net-tools git openssh-server tar gnupg2 rsync)
 
 echo "--- Iniciando Configuración de Entorno ---"
 
