@@ -17,7 +17,7 @@ read -p "Introduce el nombre de tu usuario para darle permisos sudo: " USUARIO
 
 # 2. Instalación de paquetes esenciales
 echo "[1/5] Instalando sudo y herramientas de consola..."
-PAQUETES=(sudo kbd net-tools git openssh-server gnupg2)
+PAQUETES=(sudo kbd net-tools git openssh-server gnupg2 rsync)
 apt update && apt install -y "${PAQUETES[@]}"
 
 # 3. Configurar el teclado al español (permanente)
@@ -36,7 +36,7 @@ systemctl set-default multi-user.target
 
 # 5. Configurar permisos de sudo para el usuario
 # Nota: Detecta el usuario real que lanzó el script si usaste 'su'
-usermod -aG sudo $USUARIO
+/usr/sbin/usermod -aG sudo $USUARIO
 echo "Usuario $USUARIO añadido al grupo sudo."
 
 # 6. Limpieza y finalización
@@ -46,4 +46,4 @@ setupcon || loadkeys es
 echo "--- [5/5] CONFIGURACIÓN COMPLETADA ---"
 echo "El sistema se reiniciará en 5 segundos para aplicar todo."
 sleep 5
-reboot
+/usr/sbin/reboot

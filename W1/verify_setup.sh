@@ -12,7 +12,7 @@ echo "--- Verificando Integridad del Sistema ---"
 
 # 1. Verificar paquetes
 for pkg in "${PAQUETES[@]}"; do
-    if ! dpkg -l | grep -q "^ii  $pkg "; then
+    if ! dpkg -l "$pkg" 2>/dev/null | grep -q "^ii"; then
         echo "[!] Error: Falta el paquete $pkg"
         ESTADO_OK=false
     fi
