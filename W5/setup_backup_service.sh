@@ -4,6 +4,7 @@
 ADMIN_DIR="/admin/config"
 SCRIPT_PATH="$ADMIN_DIR/backup_manager.sh"
 RESTORE_PATH="$ADMIN_DIR/restore_backup.sh"
+VERIFY_PATH="$ADMIN_DIR/verify_backup.sh"
 
 echo "[+] Creando directorio de configuración si no existe..."
 sudo mkdir -p "$ADMIN_DIR"
@@ -17,6 +18,10 @@ sudo chown root:root "$SCRIPT_PATH"
 sudo cp restore_backup.sh "$RESTORE_PATH"
 sudo chmod +x "$RESTORE_PATH"
 sudo chown root:root "$RESTORE_PATH"
+
+sudo cp verify_backup.sh "$VERIFY_PATH"
+sudo chmod +x "$VERIFY_PATH"
+sudo chown root:root "$VERIFY_PATH"
 
 echo "[+] Creando unidad de servicio de Systemd..."
 sudo bash -c "cat > /etc/systemd/system/greendev-backup.service" <<EOF
