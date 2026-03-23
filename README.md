@@ -66,6 +66,11 @@ Siga el orden de las semanas (W) para configurar el entorno correctamente:
 * `./setup_backup_service.sh`
 * `./verify_backup.sh`
 
+## Despliegue Automatizado: setup_all.sh
+Este repositorio incluye el script maestro setup_all.sh, diseñado para realizar un despliegue totalmente automatizado ("Zero-Touch Provisioning") de la infraestructura de las semanas 1 y 2.
+
+Este script es capaz de sobrevivir al reinicio del servidor requerido en la Semana 1, reanudando la instalación automáticamente en segundo plano hasta completar toda la configuración.
+
 ## Funcionalidades Extra y Diagnóstico
 
 El repositorio incluye herramientas adicionales para monitorización y pruebas:

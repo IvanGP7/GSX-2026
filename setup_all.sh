@@ -72,16 +72,39 @@ else
     cd "$BASE_DIR/W1"
     bash setup_admin.sh
     bash verify_setup.sh
-    bash backup.sh
 
     # 3. Ejecutar la Semana 2
     echo "--- Ejecutando W2 ---"
     cd "$BASE_DIR/W2"
     bash nginx.sh
+
+    # 4. Ejecutar la Semana 4
+    echo "--- Ejecutando W4 ---"
+    cd "$BASE_DIR/W4"
+    bash setup_env.sh
+    bash setup_users.sh
+    bash setup_group.sh
+    bash limit_group.sh
+
+    # 5. Ejecutar la Semana 5
+    echo "--- Ejecutando W5 ---"
+    cd "$BASE_DIR/W5"
+    bash setup_storage.sh
+    bash setup_backup_service.sh
+    bash verify_backup.sh
+
+    # -----------------------------------------------------
+    # Configuración Final Cruzada (Dependencias)
+    # -----------------------------------------------------
+    echo "--- Ejecutando Configuraciones Finales cruzadas ---"
+    # Volvemos a W2 para configurar logs y timers ahora que TODO está listo
+    cd "$BASE_DIR/W2"
+    echo "Configurando Logrotate (depende de Nginx y backups avanzados)..."
     bash logrotate_config.sh
+    echo "Activando Temporizador de Backup avanzado (depende de W5)..."
     bash backup_timer.sh
 
     echo "--- ¡INFRAESTRUCTURA DESPLEGADA COMPLETAMENTE! ---"
-    # Como este proceso corre en segundo plano por systemd, dejamos un aviso visible a todos los usuarios
-    wall "¡El setup automatizado GSX ha terminado con éxito!"
+    # Como este proceso corre en segundo plano por systemd, dejamos un aviso visible
+    wall "¡El setup automatizado GSX ha terminado con éxito! W1, W2, W4 y W5 desplegadas."
 fi
