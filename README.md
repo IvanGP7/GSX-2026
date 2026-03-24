@@ -43,7 +43,7 @@ cd GSX-2026
 ```
 ## Guía de Ejecución
 
-Para la ejecución directa usar: `su ./start_enviroment.sh`
+Para la ejecución directa usar en modo root (su): `./setup_all.sh`
 
 Este Scritp realiza la siguiente ejecución en orden:
 
