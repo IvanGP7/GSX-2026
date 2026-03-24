@@ -43,7 +43,9 @@ cd GSX-2026
 ```
 ## Guía de Ejecución
 
-Siga el orden de las semanas (W) para configurar el entorno correctamente:
+Para la ejecución directa usar: `su ./start_enviroment.sh`
+
+Este Scritp realiza la siguiente ejecución en orden:
 
 ### W1: Entorno y Administración
 * `su ./start_enviroment.sh`
